@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card with Quantity Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .product-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .product-price {
+            font-size: 18px;
+            color: #2ecc71;
+            margin: 10px 0;
+        }
+        .quantity-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .quantity-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .quantity-button:active {
+            background-color: #2980b9;
+        }
+        .quantity-display {
+            font-size: 20px;
+            margin: 0 15px;
+        }
+        .total-price {
+            font-size: 20px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/51FNnHjzhQL._AC_UF1000,1000_QL80_.jpg" alt="Wireless Headphone">
+        <div class="product-title">Wireless Headphone</div>
+        <div class="product-price" id="product-price">$99.99</div>
+
+        <div class="quantity-container">
+            <button class="quantity-button" onclick="decreaseQuantity()">-</button>
+            <div class="quantity-display" id="quantity-display">1</div>
+            <button class="quantity-button" onclick="increaseQuantity()">+</button>
+        </div>
+
+        <div class="total-price" id="total-price">$99.99</div>
+    </div>
+
+    <script>
+        let quantity = 1;
+        const productPrice = 99.99;
+
+        const quantityDisplay = document.getElementById('quantity-display');
+        const totalPriceDisplay = document.getElementById('total-price');
+
+        function increaseQuantity() 
+        {
+            quantity++;
+            updateQuantityAndPrice();
+        }
+
+        function decreaseQuantity()
+         {
+            if (quantity > 1) {
+                quantity--;
+                updateQuantityAndPrice();
+            }
+        }
+
+        function updateQuantityAndPrice() 
+        {
+            quantityDisplay.textContent = quantity;
+            totalPriceDisplay.textContent = `$${(quantity * productPrice).toFixed(2)}`;
+        }
+    </script>
+
+</body>
+</html>
