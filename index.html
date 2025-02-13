@@ -71,7 +71,7 @@
     <div class="product-card">
         <img src="https://m.media-amazon.com/images/I/51FNnHjzhQL._AC_UF1000,1000_QL80_.jpg" alt="Wireless Headphone">
         <div class="product-title">Wireless Headphone</div>
-        <div class="product-price" id="product-price">$99.99</div>
+        <div class="product-price" id="product-price">₹99.99</div>
 
         <div class="quantity-container">
             <button class="quantity-button" onclick="decreaseQuantity()">-</button>
@@ -79,7 +79,7 @@
             <button class="quantity-button" onclick="increaseQuantity()">+</button>
         </div>
 
-        <div class="total-price" id="total-price">$99.99</div>
+        <div class="total-price" id="total-price">₹99.99</div>
     </div>
 
     <script>
@@ -106,7 +106,7 @@
         function updateQuantityAndPrice() 
         {
             quantityDisplay.textContent = quantity;
-            totalPriceDisplay.textContent = `$${(quantity * productPrice).toFixed(2)}`;
+            totalPriceDisplay.textContent = `₹${(quantity * productPrice).toFixed(2)}`;
         }
     </script>
 
